@@ -1,0 +1,88 @@
+{
+    "hosts": [
+      {
+        "site": "BLR-SRR2",
+        "host-name": "host-1",
+        "host-serial": "jHNMF3",
+        "idrac-ip": "https://10.190.213.xx",
+        "nic-type": "X710",
+        "boot-nic-inf": "NIC.Slot.4-2-1",
+        "hdd": "2",
+        "private-switch": "FS BCM - https://10.190.ss.ee",
+        "switch-port": "3",
+        "runtime": "3 hours"
+      },
+      {
+        "site": "BLR-SRR2",
+        "host-name": "host-2",
+        "host-serial": "1MNR45",
+        "idrac-ip": "https://10.190.213.xx",
+        "nic-type": "X710",
+        "boot-nic-inf": "NIC.Slot.4-2-1",
+        "hdd": "2",
+        "private-switch": "FS BCM - https://10.190.ss.ee",
+        "switch-port": "3",
+        "runtime": "3 hours"
+      },
+      {
+        "site": "BLR-SRR2",
+        "host-name": "host-3",
+        "host-serial": "kHNMF4",
+        "idrac-ip": "https://10.190.213.xx",
+        "nic-type": "X710",
+        "boot-nic-inf": "NIC.Slot.4-2-1",
+        "hdd": "2",
+        "private-switch": "FS BCM - https://10.190.ss.ee",
+        "switch-port": "3",
+        "runtime": "3 hours"
+      },
+      {
+        "site": "BLR-SRR2",
+        "host-name": "host-4",
+        "host-serial": "lHNMF5",
+        "idrac-ip": "https://10.190.213.xx",
+        "nic-type": "X710",
+        "boot-nic-inf": "NIC.Slot.4-2-1",
+        "hdd": "2",
+        "private-switch": "FS BCM - https://10.190.ss.ee",
+        "switch-port": "3",
+        "runtime": "3 hours"
+      },
+      {
+        "site": "BLR-SRR2",
+        "host-name": "host-5",
+        "host-serial": "1MNR45",
+        "idrac-ip": "https://10.190.213.xx",
+        "nic-type": "X710",
+        "boot-nic-inf": "NIC.Slot.4-2-1",
+        "hdd": "2",
+        "private-switch": "FS BCM - https://10.190.ss.ee",
+        "switch-port": "3",
+        "runtime": "3 hours"
+      },
+      {
+        "site": "BLR-SRR2",
+        "host-name": "host-6",
+        "host-serial": "2MNR46",
+        "idrac-ip": "https://10.190.213.xx",
+        "nic-type": "X710",
+        "boot-nic-inf": "NIC.Slot.4-2-1",
+        "hdd": "2",
+        "private-switch": "FS BCM - https://10.190.ss.ee",
+        "switch-port": "3",
+        "runtime": "3 hours"
+      },
+      {
+        "site": "BLR-SRR2",
+        "host-name": "host-7",
+        "host-serial": "zHNMF6",
+        "idrac-ip": "https://10.190.213.xx",
+        "nic-type": "X710",
+        "boot-nic-inf": "NIC.Slot.4-2-1",
+        "hdd": "2",
+        "private-switch": "FS BCM - https://10.190.ss.ee",
+        "switch-port": "3",
+        "runtime": "3 hours"
+      }
+    ]
+  }

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Host Details{% endblock %}
+
+{% block content %}
+<h1>Host Details: {{ host['host-name'] }}</h1>
+<p>Site: {{ host['site'] }}</p>
+<p>Host Serial: {{ host['host-serial'] }}</p>
+<p>IDRAC IP: {{ host['idrac-ip'] }}</p>
+<p>NIC Type: {{ host['nic-type'] }}</p>
+<p>Boot NIC Interface: {{ host['boot-nic-inf'] }}</p>
+<p>HDD: {{ host['hdd'] }}</p>
+<p>Private Switch: {{ host['private-switch'] }}</p>
+<p>Switch Port: {{ host['switch-port'] }}</p>
+<p>Runtime: {{ host['runtime'] }}</p>
+{% endblock %}

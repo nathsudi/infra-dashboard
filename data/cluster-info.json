@@ -1,0 +1,54 @@
+{
+    "clusters": [
+      {
+        "orch-plat": "AWS",
+        "setup": "Internal",
+        "cluster-name": "validation",
+        "cluster-fqdn": "validation.maestro.intel.com",
+        "orch-ver": "v24.08.0-rc4",
+        "cluster-runtime": "7d",
+        "jump-host": "x.x.x.x",
+        "edge-nodes": ["jHNMF3"]
+      },
+      {
+        "orch-plat": "on-prem",
+        "setup": "Internal",
+        "cluster-name": "validation2",
+        "cluster-fqdn": "validation2.maestro.intel.com",
+        "orch-ver": "v24.08.0-rc4",
+        "cluster-runtime": "7d",
+        "jump-host": "x.x.x.x",
+        "edge-nodes": ["1MNR45"]
+      },
+      {
+        "orch-plat": "AWS",
+        "setup": "Internal",
+        "cluster-name": "validation",
+        "cluster-fqdn": "validation.xyz.com",
+        "orch-ver": "v24.08.0-rc4",
+        "cluster-runtime": "7d",
+        "jump-host": "x.x.x.x",
+        "edge-nodes": ["jHNMF3", "kHNMF4", "lHNMF5"]
+      },
+      {
+        "orch-plat": "on-prem",
+        "setup": "Internal",
+        "cluster-name": "validation2",
+        "cluster-fqdn": "validation2.xyz.com",
+        "orch-ver": "v24.08.0-rc4",
+        "cluster-runtime": "7d",
+        "jump-host": "x.x.x.x",
+        "edge-nodes": ["1MNR45", "2MNR46"]
+      },
+      {
+        "orch-plat": "GCP",
+        "setup": "External",
+        "cluster-name": "production",
+        "cluster-fqdn": "production.xyz.com",
+        "orch-ver": "v24.09.1",
+        "cluster-runtime": "15d",
+        "jump-host": "y.y.y.y",
+        "edge-nodes": ["zHNMF6"]
+      }
+    ]
+}

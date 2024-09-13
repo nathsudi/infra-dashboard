@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Cluster Dashboard{% endblock %}
+
+{% block content %}
+<h1>Cluster Dashboard</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Orchestrator Platform</th>
+            <th>Setup</th>
+            <th>Cluster Name</th>
+            <th>Cluster FQDN</th>
+            <th>Orchestrator Version</th>
+            <th>Cluster Runtime</th>
+            <th>Jump Host</th>
+            <th>Edge Nodes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cluster in clusters %}
+        <tr>
+            <td>{{ cluster['orch-plat'] }}</td>
+            <td>{{ cluster['setup'] }}</td>
+            <td>{{ cluster['cluster-name'] }}</td>
+            <td>{{ cluster['cluster-fqdn'] }}</td>
+            <td>{{ cluster['orch-ver'] }}</td>
+            <td>{{ cluster['cluster-runtime'] }}</td>
+            <td>{{ cluster['jump-host'] }}</td>
+            <td>
+                {% for edge_node in cluster['edge-nodes'] %}
+                    <a href="{{ url_for('hosts', serial_number=edge_node) }}">{{ edge_node }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
