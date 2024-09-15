@@ -29,7 +29,7 @@
             <td>{{ cluster['jump-host'] }}</td>
             <td>
                 {% for edge_node in cluster['edge-nodes'] %}
-                    <a href="{{ url_for('hosts', serial_number=edge_node) }}">{{ edge_node }}</a>{% if not loop.last %}, {% endif %}
+                    <a href="{{ url_for('cluster.hosts', serial_number=edge_node)}}">{{ edge_node }}</a>{% if not loop.last %}, {% endif %}
                 {% endfor %}
             </td>
         </tr>
