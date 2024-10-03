@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template, url_for
+from flask import Blueprint, jsonify, render_template, request, url_for
 from services.data_service import get_clusters, get_host_by_serial_number, get_dynamic_cluster_data
 from constants.routes import CLUSTERS_ROUTE, HOSTS_ROUTE
 
@@ -18,16 +18,9 @@ def hosts(serial_number):
         return "Host not found", 404
 
 @cluster_blueprint.route('/api/clusters/dynamic')
-@cluster_blueprint.route('/api/clusters/dynamic')
 def api_clusters_dynamic_data():
-    dynamic_data = get_dynamic_cluster_data()
-    # Construct the full URLs for the edge nodes
-    for cluster in dynamic_data:
-        cluster['edge-nodes'] = [
-            {
-                'id': edge_node,
-                'url': url_for('cluster.hosts', serial_number=edge_node)
-            }
-            for edge_node in cluster['edge-nodes']
-        ]
+    cluster_fqdn = request.args.get('fqdn')
+    if not cluster_fqdn:
+        return "Cluster FQDN not provided", 400
+    dynamic_data = get_dynamic_cluster_data(cluster_fqdn)
     return jsonify(dynamic_data)
