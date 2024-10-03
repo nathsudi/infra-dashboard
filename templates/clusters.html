@@ -4,7 +4,8 @@
 
 {% block content %}
 <h1>Cluster Dashboard</h1>
-<table>
+<button id="load-data-btn">Load Data</button>
+<table id="clusters-table">
     <thead>
         <tr>
             <th>Orchestrator Platform</th>
@@ -19,21 +20,38 @@
     </thead>
     <tbody>
         {% for cluster in clusters %}
-        <tr>
+        <tr id="cluster-{{ loop.index0 }}">
             <td>{{ cluster['orch-plat'] }}</td>
             <td>{{ cluster['setup'] }}</td>
             <td>{{ cluster['cluster-name'] }}</td>
             <td>{{ cluster['cluster-fqdn'] }}</td>
-            <td>{{ cluster['orch-ver'] }}</td>
-            <td>{{ cluster['cluster-runtime'] }}</td>
+            <td class="orch-ver">Loading...</td>
+            <td class="cluster-runtime">Loading...</td>
             <td>{{ cluster['jump-host'] }}</td>
-            <td>
-                {% for edge_node in cluster['edge-nodes'] %}
-                    <a href="{{ url_for('cluster.hosts', serial_number=edge_node)}}">{{ edge_node }}</a>{% if not loop.last %}, {% endif %}
-                {% endfor %}
-            </td>
+            <td class="edge-nodes">Loading...</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<script>
+    document.getElementById('load-data-btn').addEventListener('click', function() {
+        fetch('{{ url_for("cluster.api_clusters_dynamic_data") }}')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach((cluster, index) => {
+                    const row = document.getElementById('cluster-' + index);
+                    row.querySelector('.orch-ver').textContent = cluster['orch-ver'];
+                    row.querySelector('.cluster-runtime').textContent = cluster['cluster-runtime'];
+                    const edgeNodesCell = row.querySelector('.edge-nodes');
+                    edgeNodesCell.innerHTML = cluster['edge-nodes'].map(edgeNode =>
+                        `<a href="${edgeNode.url}">${edgeNode.id}</a>`
+                    ).join(', ');
+                });
+            })
+            .catch(error => {
+                console.error('Error loading dynamic data:', error);
+            });
+    });
+</script>
 {% endblock %}
