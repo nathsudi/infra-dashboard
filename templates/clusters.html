@@ -4,7 +4,6 @@
 
 {% block content %}
 <h1>Cluster Dashboard</h1>
-<button id="load-data-btn">Load Data</button>
 <table id="clusters-table">
     <thead>
         <tr>
@@ -16,6 +15,7 @@
             <th>Cluster Runtime</th>
             <th>Jump Host</th>
             <th>Edge Nodes</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -29,29 +29,41 @@
             <td class="cluster-runtime">Loading...</td>
             <td>{{ cluster['jump-host'] }}</td>
             <td class="edge-nodes">Loading...</td>
+            <td>
+                <button class="load-data-btn" data-fqdn="{{ cluster['cluster-fqdn'] }}">Load Data</button>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
 <script>
-    document.getElementById('load-data-btn').addEventListener('click', function() {
-        fetch('{{ url_for("cluster.api_clusters_dynamic_data") }}')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach((cluster, index) => {
-                    const row = document.getElementById('cluster-' + index);
-                    row.querySelector('.orch-ver').textContent = cluster['orch-ver'];
-                    row.querySelector('.cluster-runtime').textContent = cluster['cluster-runtime'];
-                    const edgeNodesCell = row.querySelector('.edge-nodes');
-                    edgeNodesCell.innerHTML = cluster['edge-nodes'].map(edgeNode =>
-                        `<a href="${edgeNode.url}">${edgeNode.id}</a>`
-                    ).join(', ');
-                });
+document.querySelectorAll('.load-data-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const clusterFqdn = this.getAttribute('data-fqdn');
+        const row = this.closest('tr');
+        fetch(`/api/clusters/dynamic?fqdn=${encodeURIComponent(clusterFqdn)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(cluster => {
+                row.querySelector('.orch-ver').textContent = cluster['orch-ver'];
+                row.querySelector('.cluster-runtime').textContent = cluster['cluster-runtime'];
+                const edgeNodesCell = row.querySelector('.edge-nodes');
+                edgeNodesCell.innerHTML = cluster['edge-nodes'].map(edgeNode =>
+                    `<a href="/hosts/${edgeNode}">${edgeNode}</a>`
+                ).join(', ');
             })
             .catch(error => {
                 console.error('Error loading dynamic data:', error);
+                row.querySelector('.orch-ver').textContent = 'Error';
+                row.querySelector('.cluster-runtime').textContent = 'Error';
+                row.querySelector('.edge-nodes').textContent = 'Error';
             });
     });
+});
 </script>
 {% endblock %}
