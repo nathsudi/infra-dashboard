@@ -42,7 +42,7 @@ document.querySelectorAll('.load-data-btn').forEach(button => {
     button.addEventListener('click', function() {
         const clusterFqdn = this.getAttribute('data-fqdn');
         const row = this.closest('tr');
-        fetch(`/api/clusters/dynamic?fqdn=${encodeURIComponent(clusterFqdn)}`)
+        fetch(`/clusters/dynamic?fqdn=${encodeURIComponent(clusterFqdn)}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);

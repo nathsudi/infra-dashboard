@@ -1,88 +1,82 @@
 {
     "hosts": [
-      {
-        "site": "BLR-SRR2",
-        "host-name": "host-1",
-        "host-serial": "jHNMF3",
-        "idrac-ip": "https://10.190.213.xx",
-        "nic-type": "X710",
-        "boot-nic-inf": "NIC.Slot.4-2-1",
-        "hdd": "2",
-        "private-switch": "FS BCM - https://10.190.ss.ee",
-        "switch-port": "3",
-        "runtime": "3 hours"
-      },
-      {
-        "site": "BLR-SRR2",
-        "host-name": "host-2",
-        "host-serial": "1MNR45",
-        "idrac-ip": "https://10.190.213.xx",
-        "nic-type": "X710",
-        "boot-nic-inf": "NIC.Slot.4-2-1",
-        "hdd": "2",
-        "private-switch": "FS BCM - https://10.190.ss.ee",
-        "switch-port": "3",
-        "runtime": "3 hours"
-      },
-      {
-        "site": "BLR-SRR2",
-        "host-name": "host-3",
-        "host-serial": "kHNMF4",
-        "idrac-ip": "https://10.190.213.xx",
-        "nic-type": "X710",
-        "boot-nic-inf": "NIC.Slot.4-2-1",
-        "hdd": "2",
-        "private-switch": "FS BCM - https://10.190.ss.ee",
-        "switch-port": "3",
-        "runtime": "3 hours"
-      },
-      {
-        "site": "BLR-SRR2",
-        "host-name": "host-4",
-        "host-serial": "lHNMF5",
-        "idrac-ip": "https://10.190.213.xx",
-        "nic-type": "X710",
-        "boot-nic-inf": "NIC.Slot.4-2-1",
-        "hdd": "2",
-        "private-switch": "FS BCM - https://10.190.ss.ee",
-        "switch-port": "3",
-        "runtime": "3 hours"
-      },
-      {
-        "site": "BLR-SRR2",
-        "host-name": "host-5",
-        "host-serial": "1MNR45",
-        "idrac-ip": "https://10.190.213.xx",
-        "nic-type": "X710",
-        "boot-nic-inf": "NIC.Slot.4-2-1",
-        "hdd": "2",
-        "private-switch": "FS BCM - https://10.190.ss.ee",
-        "switch-port": "3",
-        "runtime": "3 hours"
-      },
-      {
-        "site": "BLR-SRR2",
-        "host-name": "host-6",
-        "host-serial": "2MNR46",
-        "idrac-ip": "https://10.190.213.xx",
-        "nic-type": "X710",
-        "boot-nic-inf": "NIC.Slot.4-2-1",
-        "hdd": "2",
-        "private-switch": "FS BCM - https://10.190.ss.ee",
-        "switch-port": "3",
-        "runtime": "3 hours"
-      },
-      {
-        "site": "BLR-SRR2",
-        "host-name": "host-7",
-        "host-serial": "zHNMF6",
-        "idrac-ip": "https://10.190.213.xx",
-        "nic-type": "X710",
-        "boot-nic-inf": "NIC.Slot.4-2-1",
-        "hdd": "2",
-        "private-switch": "FS BCM - https://10.190.ss.ee",
-        "switch-port": "3",
-        "runtime": "3 hours"
-      }
+        {
+            "serialNumber": "87T4DZ3",
+            "onboardingStatus": "Provisioned",
+            "osDetails": {
+                "architecture": "",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "Ubuntu 22.04 LTS generic (24.08.0-rc7)",
+                "osResourceID": "os-39330fb2",
+                "profileName": "ubuntu-22.04-lts-generic:1.0.2",
+                "repoUrl": "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img",
+                "resourceId": "os-39330fb2",
+                "securityFeature": "SECURITY_FEATURE_SECURE_BOOT_AND_FULL_DISK_ENCRYPTION",
+                "sha256": "76423945c97fddd415fa17610c7472b07c46d6758d42f4f706f1bbe972f51155",
+                "updateSources": null
+            },
+            "productName": "PowerEdge XR12",
+            "uuid": "4c4c4544-0037-5410-8034-b8c04f445a33"
+        },
+        {
+            "serialNumber": "ec24a787-1305-7fbc-91da-1bea46b326d3",
+            "onboardingStatus": "",
+            "osDetails": {
+                "architecture": "",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "Ubuntu-22.04.4-LTS",
+                "osResourceID": "os-8de91ef0",
+                "profileName": "",
+                "repoUrl": "repo-url-value",
+                "resourceId": "os-8de91ef0",
+                "securityFeature": "SECURITY_FEATURE_UNSPECIFIED",
+                "sha256": "d5b24906e907ce490a2045333996e59ad9f1eb52e4b23201e402f61ca45419e7",
+                "updateSources": [
+                    "update-source-value"
+                ]
+            },
+            "productName": "t3.2xlarge",
+            "uuid": "ec24a787-1305-7fbc-91da-1bea46b326d3"
+        },
+        {
+            "serialNumber": "CJB4DZ3",
+            "onboardingStatus": "Provisioned",
+            "osDetails": {
+                "architecture": "",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "Ubuntu 22.04 LTS generic (24.08.0-rc7)",
+                "osResourceID": "os-39330fb2",
+                "profileName": "ubuntu-22.04-lts-generic:1.0.2",
+                "repoUrl": "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img",
+                "resourceId": "os-39330fb2",
+                "securityFeature": "SECURITY_FEATURE_SECURE_BOOT_AND_FULL_DISK_ENCRYPTION",
+                "sha256": "76423945c97fddd415fa17610c7472b07c46d6758d42f4f706f1bbe972f51155",
+                "updateSources": null
+            },
+            "productName": "PowerEdge XR12",
+            "uuid": "4c4c4544-004a-4210-8034-c3c04f445a33"
+        },
+        {
+            "serialNumber": "CPZ4DZ3",
+            "onboardingStatus": "Provisioned",
+            "osDetails": {
+                "architecture": "",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "Ubuntu 22.04 LTS generic (24.08.0-rc7)",
+                "osResourceID": "os-39330fb2",
+                "profileName": "ubuntu-22.04-lts-generic:1.0.2",
+                "repoUrl": "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img",
+                "resourceId": "os-39330fb2",
+                "securityFeature": "SECURITY_FEATURE_SECURE_BOOT_AND_FULL_DISK_ENCRYPTION",
+                "sha256": "76423945c97fddd415fa17610c7472b07c46d6758d42f4f706f1bbe972f51155",
+                "updateSources": null
+            },
+            "productName": "PowerEdge XR12",
+            "uuid": "4c4c4544-0050-5a10-8034-c3c04f445a33"
+        }
     ]
-  }
+}

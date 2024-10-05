@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, render_template, request, url_for
 from services.data_service import get_clusters, get_host_by_serial_number, get_dynamic_cluster_data
-from constants.routes import CLUSTERS_ROUTE, HOSTS_ROUTE
+from constants.routes import *
 
 cluster_blueprint = Blueprint('cluster', __name__)
 
@@ -17,7 +17,7 @@ def hosts(serial_number):
     else:
         return "Host not found", 404
 
-@cluster_blueprint.route('/api/clusters/dynamic')
+@cluster_blueprint.route(CLUSTER_DYNAMIC_DATA)
 def api_clusters_dynamic_data():
     cluster_fqdn = request.args.get('fqdn')
     if not cluster_fqdn:

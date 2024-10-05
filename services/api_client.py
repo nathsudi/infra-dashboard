@@ -36,6 +36,6 @@ def get_compute_hosts(cluster_fqdn):
     return None
 
 
-CLUSTER_FQDN='validation5.espd.infra-host.com'
-print(f'{get_api_token(CLUSTER_FQDN)}')
+CLUSTER_FQDN='integration18.espd.infra-host.com'
+#print(f'{get_api_token(CLUSTER_FQDN)}')
 print(f'{get_compute_hosts(CLUSTER_FQDN)}')
