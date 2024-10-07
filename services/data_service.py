@@ -1,6 +1,6 @@
 import json
 
-from services.api_client import get_compute_hosts
+from services.api_client import find_valid_fqdn, get_compute_hosts
 
 def load_json_data(file_path):
     with open(file_path, 'r') as f:
@@ -16,23 +16,34 @@ def get_host_by_serial_number(serial_number):
     return next((host for host in hosts_data['hosts'] if host['serialNumber'] == serial_number), None)
 
 
-def get_dynamic_cluster_data(cluster_fqdn):
+def get_dynamic_cluster_data(cluster_name):
+    cluster_fqdn=find_valid_fqdn(cluster_name)
     print(f'cluster fqdn passed to data layer is: ${cluster_fqdn}')
-    host_data = get_compute_hosts(cluster_fqdn)
-    serial_numbers_list, version = get_hosts_data(host_data)
-    print(serial_numbers_list,version)
-    dynamic_data = {
-            "orch-ver": version,
+    if(cluster_fqdn == None):
+        dynamic_data = {
+            "cluster-fqdn":"unreachable",
+            "orch-ver": "...",
             "cluster-runtime": "...",
-            "edge-nodes": serial_numbers_list
+            "edge-nodes": "..."
         }
+    else:
+        host_data = get_compute_hosts(cluster_fqdn)
+
+        serial_numbers_list, version = get_hosts_data(host_data)
+        print(serial_numbers_list,version)
+        dynamic_data = {
+                "cluster-fqdn":cluster_fqdn,
+                "orch-ver": version,
+                "cluster-runtime": "...",
+                "edge-nodes": serial_numbers_list
+            }
     return dynamic_data
 
 def get_hosts_data(host_json_data):
     data_dict=host_json_data
-    # Initialize an empty list for serial numbers and the final JSON object
     serial_numbers = []
     final_json = []
+    version_number = None
 
     # Iterate through the hosts and extract the required information
     for host in data_dict['hosts']:
@@ -41,7 +52,7 @@ def get_hosts_data(host_json_data):
         os_details= host['instance']['os']
         prodct_name=host['productName']
         uuid=host['uuid']
-
+        
         # Extract the version number from the "name" field
         os_name = host['instance']['os']['name']
         version_start = os_name.find(" (") + 2 

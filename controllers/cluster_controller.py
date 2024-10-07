@@ -19,8 +19,8 @@ def hosts(serial_number):
 
 @cluster_blueprint.route(CLUSTER_DYNAMIC_DATA)
 def api_clusters_dynamic_data():
-    cluster_fqdn = request.args.get('fqdn')
-    if not cluster_fqdn:
-        return "Cluster FQDN not provided", 400
-    dynamic_data = get_dynamic_cluster_data(cluster_fqdn)
+    cluster_name = request.args.get('cluster-name')
+    if not cluster_name:
+        return "Cluster name not provided", 400
+    dynamic_data = get_dynamic_cluster_data(cluster_name)
     return jsonify(dynamic_data)

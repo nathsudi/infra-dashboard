@@ -35,7 +35,21 @@ def get_compute_hosts(cluster_fqdn):
         return response.json()
     return None
 
+def find_valid_fqdn(cluster_name):
+    options = [".maestro.intel.com", ".espd.infra-host.com"]
+    for option in options:
+        cluster_fqdn = f'{cluster_name}{option}'
+        full_url = f'https://web-ui.{cluster_fqdn}'
+        try:
+            response = requests.get(full_url, verify=False)
+            if response.status_code == 200:
+                return f'{cluster_fqdn}'
+        except requests.RequestException as e:
+            # Handle exceptions for invalid URLs or connection errors
+            print(f"Error checking URL {full_url}: {e}")
+    print("No valid URL found.")
+    return None
 
-CLUSTER_FQDN='integration18.espd.infra-host.com'
+# CLUSTER_FQDN='integration18.espd.infra-host.com'
 #print(f'{get_api_token(CLUSTER_FQDN)}')
-print(f'{get_compute_hosts(CLUSTER_FQDN)}')
+# print(f'{get_compute_hosts(CLUSTER_FQDN)}')

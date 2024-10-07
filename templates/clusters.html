@@ -3,7 +3,7 @@
 {% block title %}Cluster Dashboard{% endblock %}
 
 {% block content %}
-<h1>Cluster Dashboard</h1>
+<h1>Infra Dashboard</h1>
 <table id="clusters-table">
     <thead>
         <tr>
@@ -24,13 +24,13 @@
             <td>{{ cluster['orch-plat'] }}</td>
             <td>{{ cluster['setup'] }}</td>
             <td>{{ cluster['cluster-name'] }}</td>
-            <td>{{ cluster['cluster-fqdn'] }}</td>
+            <td class="cluster-fqdn">Loading...</td>
             <td class="orch-ver">Loading...</td>
             <td class="cluster-runtime">Loading...</td>
             <td>{{ cluster['jump-host'] }}</td>
             <td class="edge-nodes">Loading...</td>
             <td>
-                <button class="load-data-btn" data-fqdn="{{ cluster['cluster-fqdn'] }}">Load Data</button>
+                <button class="load-data-btn" data-cluster-name="{{ cluster['cluster-name'] }}">Load Data</button>
             </td>
         </tr>
         {% endfor %}
@@ -40,9 +40,9 @@
 <script>
 document.querySelectorAll('.load-data-btn').forEach(button => {
     button.addEventListener('click', function() {
-        const clusterFqdn = this.getAttribute('data-fqdn');
+        const clusterName = this.getAttribute('data-cluster-name');
         const row = this.closest('tr');
-        fetch(`/clusters/dynamic?fqdn=${encodeURIComponent(clusterFqdn)}`)
+        fetch(`/clusters/dynamic?cluster-name=${encodeURIComponent(clusterName)}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -50,6 +50,7 @@ document.querySelectorAll('.load-data-btn').forEach(button => {
                 return response.json();
             })
             .then(cluster => {
+                row.querySelector('.cluster-fqdn').textContent = cluster['cluster-fqdn'];
                 row.querySelector('.orch-ver').textContent = cluster['orch-ver'];
                 row.querySelector('.cluster-runtime').textContent = cluster['cluster-runtime'];
                 const edgeNodesCell = row.querySelector('.edge-nodes');
@@ -59,6 +60,7 @@ document.querySelectorAll('.load-data-btn').forEach(button => {
             })
             .catch(error => {
                 console.error('Error loading dynamic data:', error);
+                row.querySelector('.cluster-name').textContent = 'Error';
                 row.querySelector('.orch-ver').textContent = 'Error';
                 row.querySelector('.cluster-runtime').textContent = 'Error';
                 row.querySelector('.edge-nodes').textContent = 'Error';

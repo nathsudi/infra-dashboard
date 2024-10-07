@@ -77,6 +77,118 @@
             },
             "productName": "PowerEdge XR12",
             "uuid": "4c4c4544-0050-5a10-8034-c3c04f445a33"
+        },
+        {
+            "serialNumber": "2MNJPZ3",
+            "onboardingStatus": "Provisioned",
+            "osDetails": {
+                "architecture": "",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "OSProfile",
+                "osResourceID": "os-ab52ce4f",
+                "osType": "OPERATING_SYSTEM_TYPE_IMMUTABLE",
+                "profileName": "TiberOS",
+                "repoUrl": "one-intel-edge/tiberos",
+                "resourceId": "os-ab52ce4f",
+                "securityFeature": "SECURITY_FEATURE_NONE",
+                "sha256": "de04d58dc5ccc4b9671c3627fb8d626fe4a15810bc1fe3e724feea761965f666",
+                "updateSources": [
+                    "some update source"
+                ]
+            },
+            "productName": "PowerEdge XR12",
+            "uuid": "4c4c4544-004d-4e10-804a-b2c04f505a33"
+        },
+        {
+            "serialNumber": "7J5K2Z3",
+            "onboardingStatus": "Onboarded",
+            "osDetails": {
+                "architecture": "",
+                "imageId": "",
+                "imageUrl": "https://cloud-images.ubuntu.com/releases/22.04/release-20240912/ubuntu-22.04-server-cloudimg-amd64.img",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "Ubuntu 22.04.5 LTS (24.11.0-dev)",
+                "osResourceID": "os-5f3bacc7",
+                "osType": "OPERATING_SYSTEM_TYPE_MUTABLE",
+                "profileName": "ubuntu-22.04-lts-generic:1.0.2",
+                "profileVersion": "",
+                "repoUrl": "https://cloud-images.ubuntu.com/releases/22.04/release-20240912/ubuntu-22.04-server-cloudimg-amd64.img",
+                "resourceId": "os-5f3bacc7",
+                "securityFeature": "SECURITY_FEATURE_SECURE_BOOT_AND_FULL_DISK_ENCRYPTION",
+                "sha256": "5da0b3d37d02ca6c6760caa4041b4df14e08abc7bc9b2db39133eef8ee145f6d",
+                "updateSources": null
+            },
+            "productName": "PowerEdge XR12",
+            "uuid": "4c4c4544-004a-3510-804b-b7c04f325a33"
+        },
+        {
+            "serialNumber": "FFSRQR3",
+            "onboardingStatus": "Provisioned",
+            "osDetails": {
+                "architecture": "",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "OSProfile",
+                "osResourceID": "os-44817b82",
+                "osType": "OPERATING_SYSTEM_TYPE_IMMUTABLE",
+                "profileName": "TiberOS",
+                "repoUrl": "one-intel-edge/tiberos",
+                "resourceId": "os-44817b82",
+                "securityFeature": "SECURITY_FEATURE_UNSPECIFIED",
+                "sha256": "de04d58dc5ccc4b9671c3627fb8d626fe4a15810bc1fe3e724feea761965f666",
+                "updateSources": [
+                    "some update source"
+                ]
+            },
+            "productName": "",
+            "uuid": "4c4c4544-0046-5310-8052-c6c04f515233"
+        },
+        {
+            "serialNumber": "3S8TJQ3",
+            "onboardingStatus": "Provisioned",
+            "osDetails": {
+                "architecture": "",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "OSProfile",
+                "osResourceID": "os-44817b82",
+                "osType": "OPERATING_SYSTEM_TYPE_IMMUTABLE",
+                "profileName": "TiberOS",
+                "repoUrl": "one-intel-edge/tiberos",
+                "resourceId": "os-44817b82",
+                "securityFeature": "SECURITY_FEATURE_UNSPECIFIED",
+                "sha256": "de04d58dc5ccc4b9671c3627fb8d626fe4a15810bc1fe3e724feea761965f666",
+                "updateSources": [
+                    "some update source"
+                ]
+            },
+            "productName": "PowerEdge XR12",
+            "uuid": "4c4c4544-0053-3810-8054-b3c04f4a5133"
+        },
+        {
+            "serialNumber": "JLNJPZ3",
+            "onboardingStatus": "Onboarded",
+            "osDetails": {
+                "architecture": "",
+                "imageId": "",
+                "imageUrl": "https://cloud-images.ubuntu.com/releases/22.04/release-20240912/ubuntu-22.04-server-cloudimg-amd64.img",
+                "installedPackages": "",
+                "kernelCommand": "",
+                "name": "Ubuntu 22.04.5 LTS (24.11.0-dev)",
+                "osResourceID": "os-ac890765",
+                "osType": "OPERATING_SYSTEM_TYPE_MUTABLE",
+                "profileName": "ubuntu-22.04-lts-generic:1.0.2",
+                "profileVersion": "",
+                "repoUrl": "https://cloud-images.ubuntu.com/releases/22.04/release-20240912/ubuntu-22.04-server-cloudimg-amd64.img",
+                "resourceId": "os-ac890765",
+                "securityFeature": "SECURITY_FEATURE_SECURE_BOOT_AND_FULL_DISK_ENCRYPTION",
+                "sha256": "5da0b3d37d02ca6c6760caa4041b4df14e08abc7bc9b2db39133eef8ee145f6d",
+                "updateSources": null
+            },
+            "productName": "PowerEdge XR12",
+            "uuid": "4c4c4544-004c-4e10-804a-cac04f505a33"
         }
     ]
 }
