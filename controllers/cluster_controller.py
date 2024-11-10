@@ -11,7 +11,8 @@ def clusters():
 
 @cluster_blueprint.route(HOSTS_ROUTE + '/<serial_number>')
 def hosts(serial_number):
-    host_details = get_host_by_serial_number(serial_number)
+    formated_serial_number=serial_number.split('(')[0]
+    host_details = get_host_by_serial_number(formated_serial_number)
     if host_details:
         return render_template('hosts.html', host=host_details)
     else:

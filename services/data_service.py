@@ -61,7 +61,7 @@ def get_hosts_data(host_json_data):
             version_number = os_name[version_start:version_end]
         
         # Append the serial number to the list
-        serial_numbers.append(serial_number)
+        serial_numbers.append(serial_number+'('+onboarding_status_message+')')
         
         # Append the extracted information to the final JSON object
         final_json.append({

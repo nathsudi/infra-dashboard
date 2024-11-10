@@ -36,7 +36,7 @@ def get_compute_hosts(cluster_fqdn):
     return None
 
 def find_valid_fqdn(cluster_name):
-    options = [".maestro.intel.com", ".espd.infra-host.com"]
+    options = [".espd.infra-host.com",".maestro.intel.com"]
     for option in options:
         cluster_fqdn = f'{cluster_name}{option}'
         full_url = f'https://web-ui.{cluster_fqdn}'
